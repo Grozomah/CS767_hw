@@ -3,16 +3,16 @@
 % 21.9.2016
 % refer to this file for all proper procedures
 
-%% Problem 1 - segmentor
+%% Problem 1 - segmentation
 if true         % switch
-load('blobs.mat')
+load('p1/blobs.mat');
 
 % view the data
-blob3D=cat(3, blobs{:});
-orthoslice(blob3D, [0, 1])
+orthoslice(cat(3, blobs{:}), [0, 1])
 
 % task function
-imOut = mySegmenter(blob{1})
-
+slice= 1; % 1 to 20
+imOut = mySegmenter(blobs{slice});
+imshow(imOut);
 
 end

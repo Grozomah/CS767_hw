@@ -9,6 +9,8 @@ function orthoslice(data, varargin)
 % data - in a 3D matrix form
 % HUrange - how to grayscale the image: [-500, 500]
 % dim - along which dim to plot: 1-xy, 2-xz, 3-yz
+%
+% Peter Ferjancic, Aug 2016
 
 numvarargs = length(varargin);
 if numvarargs > 2
