@@ -23,16 +23,16 @@ for i=2:Nbin-1
     muOut=mean(listOut);
     
     ICvarianceTemp=Nout*Nin*(muIn-muOut)*(muIn-muOut);
+    % source for the math: wikipedia. Disclamer: there is also a matlab
+    % code on the website. I tried to write mine without looking at the
+    % provided example.
     
 %     disp([i, ICvarianceTemp])
     if ICvarianceTemp>ICvariance
         ICvariance=ICvarianceTemp;
         thr=edges(i);
-        
 %         disp(['i: ', num2str(i), ', thr: ', num2str(thr), ', var: ', num2str(ICvariance)])
     end
-    
-    
 end
 
 end
