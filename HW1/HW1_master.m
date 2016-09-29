@@ -32,19 +32,33 @@ end
 
 %% ############################################ %%
 %% Problem 2 - region labeling
-if true         % switch
-
-testImage=imread('p2\test-label.png');
-imOut = myRegionFinder(testImage);
-    
-imshow(imOut, [0, 154])
-    
-    
-    
+if false         % switch
+img2=imread('p2\test-label.png');
+imOut = myRegionFinder(img2);
+imshow(imOut, [0, 5])
 end
 
 
+%% ############################################ %%
+%% Problem 3 - edge detection
+if true         % switch
+img3=im2double(imread('p3\edge_link.png'));
+% smooth data
+sigma=3;
+img3a = imgaussfilt(img3, sigma);
+% imshow(img3a)
 
+% problem 3.1
+[gradMag, gradDir]=myEdgeDetection(img3);
+imshow(gradMag)
+myQuiver(gradDir, 1)
+
+% problem 3.2
+start=[229,206];
+edgeOut=myEdgeExtraction(gradMag, start);
+imshow(edgeOut)
+
+end
 
 
 
