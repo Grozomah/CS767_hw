@@ -1,7 +1,7 @@
 function edgeImg=myEdge(img);
 
     tabula=zeros(size(img));
-    sigma=4;
+    sigma=15;
 
     imgGauss = imgaussfilt(img, sigma);
     

@@ -82,20 +82,25 @@ if false         % switch
     
     imshow(img3, [min(img3(:)), max(img3(:))]
     
-    %% straightforward way of doing it
+    %% 3.2.1 straightforward way of doing it
     edgeImg=edge(img3);
     imshow(edgeImg)
     
-    start=[111,140];
+    start=[164,128];
     edgeOut=myEdgeExtraction(edgeImg, start);
     imshow(edgeOut)
     
-    %% another attempt at it
+    %% 3.2.2 another attempt at it
+    % not really working
     edgeImg=myEdge(img3);
     imshow(edgeImg)
     
-    %% matlab's way of doing it
-    contour = bwtraceboundary(BW,[r c],'W',8,Inf,'counterclockwise');
+    %% 3.2.3 snake attempt
+    imOut=mySnek(img, start);
+    imshow(imOut)
+    
+    %% snake attempt 2, with input
+    imOut=mySnekInput(img);
     
 end
 
