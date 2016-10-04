@@ -1,8 +1,12 @@
-
-function [out1, out2]=myDT(img)
+%% myDT function - HW1, problem 1.2
+function [distIn, distOut]=myDT(img)
+% This function returns the inside- and outside-distance matrices for
+% problem 1.2.
+% input: img - black and white image
+% output: distIn, distOut - matrices with Manhattan distances to the edge
+% inside and outside of segmented area.
 
 mask = mySegmenter(img);
-
 
 %% part one - image inside
 distIn=zeros(size(img));
@@ -29,9 +33,5 @@ while (max(outside(:))>0)
     outside=imerode(outside, se);
     i=i+1;
 end
-
-out1=distIn;
-out2=distOut;
-
 
 end

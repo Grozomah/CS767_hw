@@ -1,4 +1,6 @@
+%% myDT function - HW1, problem 1.3
 function data=myCorrelations(blobs, predictor)
+% returns a matrix of: predictor value, threshold, area, radius
 
 data=zeros(20,4);
 

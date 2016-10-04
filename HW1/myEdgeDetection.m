@@ -14,7 +14,6 @@ gradx =conv2(image,kernelx,'same');
 % imshow(gradx, [-1,1])
 
 gradMag= sqrt(gradx.^2+grady.^2);
-
 gradDir = atan(grady./gradx) + (1- gradx./abs(gradx))/2 *pi;
 
 end

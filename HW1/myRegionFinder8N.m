@@ -1,4 +1,4 @@
-function out=myRegionFinder(img)
+function out=myRegionFinder8N(img)
 % finds all 4- connected regions
 
 bin=img>0;
@@ -25,7 +25,18 @@ for i=1:imax %each pix in matrix
                 canvas(i)=canvas(i-matsize(1));
                 continue
             end
+            % upper left
+            if(canvas(i-matsize(1)-1)>0) && rem(i,matsize(1))~= 1
+                canvas(i)=canvas(i-matsize(1)-1);
+                continue
+            end
+            % lower left
+            if(canvas(i-matsize(1)+1)>0) && rem(i,matsize(1))~= 0
+                canvas(i)=canvas(i-matsize(1)+1);
+                continue
+            end
         end
+        
         canvas(i)=max(canvas(:)+1); % otherwise, assign new value
     end
 end
@@ -44,6 +55,23 @@ for i=1:imax %each pix in matrix
                     canvas(canvas==canvas(i))=canvas(i-matsize(1));
                 end
             end
+            
+            if(canvas(i-matsize(1)-1)>0)
+                % and if they not the same
+                if (canvas(i-matsize(1)-1)~=canvas(i))
+                    % replace all old labels with smaller neighbor
+                    canvas(canvas==canvas(i))=canvas(i-matsize(1)-1);
+                end
+            end
+            
+            if(canvas(i-matsize(1)+1)>0)
+                % and if they not the same
+                if (canvas(i-matsize(1)+1)~=canvas(i))
+                    % replace all old labels with smaller neighbor
+                    canvas(canvas==canvas(i))=canvas(i-matsize(1)+1);
+                end
+            end
+            
         end
     end
 end
