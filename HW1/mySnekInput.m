@@ -26,7 +26,7 @@ delete(h)
 imshow(mask)
 
 % Now find the improved outer boundary using active contours.
-bw = activecontour(img*10, mask, 400, 'edge', 'SmoothFactor',0.5);
+bw = activecontour(img*10, mask, 200, 'edge', 'SmoothFactor',0.5);
 % imshow(bw)
 
 imshow(img)

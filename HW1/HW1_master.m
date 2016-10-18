@@ -8,21 +8,21 @@ cd('E:\005-faks\CS767\HW\HW1')
 %% Problem 1 - segmentation
 if false         % switch
     load('p1/blobs.mat');
-    slice= 7; % 1 to 20
+    sliceN= 7; % 1 to 20
     % view the data
 %     orthoslice(cat(3, blobs{:}), [0, 1])
 
     %% problem 1.1
-    imOut = mySegmenter(blobs{slice});
-    imshow(blobs{slice});
+    imOut = mySegmenter(blobs{sliceN});
+    imshow(blobs{sliceN});
     hold on
     contour(imOut, 'r')
     hold off
     
     %% problem 1.2
-    [out1, out2] = myDT(blobs{slice});
-%     imshow(out1, [0, 80]);
-%     imshow(out2, [0, 100]);
+    [out1, out2] = myDT(blobs{sliceN});
+    imshow(out1, [0, 80]);
+    imshow(out2, [0, 100]);
     
     %% problem 1.3
     data=myCorrelations(blobs, predictor);
@@ -80,7 +80,7 @@ if false         % switch
 %     img3=im2double(rgb2gray(imread('p3\img_ct_lung.jpg')));
     img3=im2double(imread('p3\edge_link.png'));
     
-    imshow(img3, [min(img3(:)), max(img3(:))]
+    imshow(img3, [min(img3(:)), max(img3(:))])
     
     %% 3.2.1 straightforward way of doing it
     edgeImg=edge(img3);
@@ -92,14 +92,14 @@ if false         % switch
     
     %% 3.2.2 another attempt at it
     % not really working
-    edgeImg=myEdge(img3);
-    imshow(edgeImg)
+%     edgeImg=myEdge(img3);
+%     imshow(edgeImg)
     
     %% 3.2.3 snake attempt
-    imOut=mySnek(img, start);
+    imOut=mySnek(img3, start);
     imshow(imOut)
     
-    %% snake attempt 2, with input
+    %% 3.2.4 snake attempt 2, with input
     imOut=mySnekInput(img);
     
 end
