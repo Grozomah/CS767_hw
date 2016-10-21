@@ -20,6 +20,11 @@ end
 %% Problem 2 - Hough transform
 if false         % switch
     
+    img1=imread('p2/2.1/2.png');
+    image(img1)
+    
+    lines = matlabHoughLine(imBW,n)
+    
     lines = myHoughLine(imBW,n)
 end
 
