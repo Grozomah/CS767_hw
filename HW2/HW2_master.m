@@ -12,7 +12,6 @@ if false         % switch
     load('testMatrix.mat')
     imOut = liveWire(testMatrix, idx(2), idx(1))
     
-    
 %     imOut = scissors(imIn, seedRow, seedCol, destRow, destCol)
 end
 
@@ -20,6 +19,7 @@ end
 %% ############################################ %%
 %% Problem 2 - Hough transform
 if false         % switch
+    
     lines = myHoughLine(imBW,n)
 end
 

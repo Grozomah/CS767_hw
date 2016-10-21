@@ -1,10 +1,10 @@
-% function imOut = liveWire(imIn, seedRow, seedCol)
+function imOut = liveWire(imIn, seedRow, seedCol)
     
-    idx=[3,8];
-    load('testMatrix.mat')
-    imIn=testMatrix;
-    seedRow=idx(2);
-    seedCol=idx(1);
+%     idx=[3,8];
+%     load('testMatrix.mat')
+%     imIn=testMatrix;
+%     seedRow=idx(2);
+%     seedCol=idx(1);
     
     Msize=size(imIn);
 
@@ -54,13 +54,17 @@
             
             % if neighbor on list:
             if g(neigIdx)<inf
-                g(neigIdx)=min(g(neigIdx), gidxnew);
-                % add pointer from min path
+                if gidxnew<g(neigIdx)
+                    g(neigIdx)= gidxnew;
+                    % add pointer from min path
+                    p(neigIdx)=currentElementIdx;
+                end
                 
             else % otherwise calculate new cost to pix
                 gidxnew=g(currentElementIdx)+cost;
                 g(neigIdx)=gidxnew;
-                % add pointer from min path !!!!!! !!! ! !! TO DO
+                % add pointer from min path
+                p(neigIdx)=currentElementIdx;
                 
                 % add neighbours to work list
                 L=unique([L; neigIdx]);
@@ -69,4 +73,4 @@
     end
     
     imOut=g;
-% end
+end
