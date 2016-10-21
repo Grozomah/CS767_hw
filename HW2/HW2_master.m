@@ -7,14 +7,20 @@ cd('E:\005-faks\CS767\HW\HW2')
 %% ############################################ %%
 %% Problem 1 - inteligent scissors&live vires
 if false         % switch
-    imOut = scissors(imIn, seedRow, seedCol, destRow, destCol)
+    
+    idx=[3,8];
+    load('testMatrix.mat')
+    imOut = liveWire(testMatrix, idx(2), idx(1))
+    
+    
+%     imOut = scissors(imIn, seedRow, seedCol, destRow, destCol)
 end
 
 
 %% ############################################ %%
-%% Problem 2 - region labeling
+%% Problem 2 - Hough transform
 if false         % switch
-    
+    lines = myHoughLine(imBW,n)
 end
 
 
